@@ -105,7 +105,7 @@
           <p class="hero-description">Mundësi pune dhe praktike që përputhen me ty. Pa zhurmë, pa humbur kohë — vetëm hapi yt i radhës.</p>
           ${searchForm()}
           <p class="popular-searches"><span>Të kërkuara:</span> <a href="#/jobs?q=dizajn">dizajn</a><a href="#/jobs?type=Praktikë">praktikë</a><a href="#/jobs?q=remote">remote</a></p>
-          <div class="hero-proof"><span class="hero-proof-icon" aria-hidden="true">✳</span><span><strong>9 mundësi</strong> për t’u eksploruar</span></div>
+          <div class="hero-proof"><span class="hero-proof-icon" aria-hidden="true">✳</span><span><strong>${jobs.length} mundësi</strong> për t’u eksploruar</span></div>
         </div>
         <div class="hero-art" aria-label="Ilustrim i një kandidati që kërkon mundësi">
           <div class="art-sun"></div><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
@@ -126,7 +126,7 @@
     <section class="section categories-section" aria-labelledby="categories-heading">
       <div class="container">
         <div class="section-heading section-heading-compact"><div><div class="eyebrow"><span class="eyebrow-line"></span> ÇFARË TË PËLQEN?</div><h2 id="categories-heading">Nis nga <em>interesi yt.</em></h2></div><a class="text-link" href="#/jobs">Të gjitha kategoritë <span aria-hidden="true">↗</span></a></div>
-        <div class="category-grid">${categories.map((category) => `<a class="category-card" href="#/jobs?category=${encodeURIComponent(category.name)}"><span class="category-icon" aria-hidden="true">${category.icon}</span><span class="category-name">${escapeHTML(category.name)}</span><span class="category-count">${category.count} mundësi <span aria-hidden="true">↗</span></span></a>`).join("")}</div>
+        <div class="category-grid">${categories.map((category) => `<a class="category-card" href="#/jobs?category=${encodeURIComponent(category.name)}"><span class="category-icon" aria-hidden="true">${category.icon}</span><span class="category-name">${escapeHTML(category.name)}</span><span class="category-count">${jobs.filter((job) => job.category === category.name).length} mundësi <span aria-hidden="true">↗</span></span></a>`).join("")}</div>
       </div>
     </section>
     <section class="section how-section" aria-labelledby="how-heading">
